@@ -2,6 +2,7 @@ Before running this script, please make sure:
 <ul>
 <li>Intall Homebrew<a href="https://brew.sh/"></a></li>
 <li>Using homebrew install wget by typing <i>brew install wget</i> on the terminal</li>
+  
   If you are making a backup of the files on the server:
 <li>Connect to VPN</li>
 <li>Connect to gpp_share</li>
