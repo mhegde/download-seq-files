@@ -14,6 +14,7 @@ def get_parser():
 	parser.add_argument('--output-folder-name', type=str, help='Name of output folder to save demultiplexed files in')
 	parser.add_argument('--output-folder-path', type=str, help='Path to output folder to save demultiplexed files in'
 															   '(Do not include the name of the folder itself)')
+	parser.add_argument('--make-backup', type=str, default='N', help='Y/N to make backup of files on server; Default:N')
 	return parser
 
 
@@ -24,11 +25,12 @@ def get_inputs():
 	url = args.url
 	outputname = args.output_folder_name
 	outputpath = args.output_folder_path
-	return username, password, url, outputname, outputpath
+	make_backup = args.make_backup
+	return username, password, url, outputname, outputpath, make_backup
 
 
 def download_locally():
-	username, password, url, outputname, outputpath = get_inputs()
+	username, password, url, outputname, outputpath, make_backup = get_inputs()
 	dir_cmd = 'mkdir '+outputpath+'/'+outputname
 	os.system(dir_cmd)
 	cmd = 'wget --tries=10 --continue --mirror --user '+ username +' --password '+ password +\
@@ -38,7 +40,9 @@ def download_locally():
 		os.system(cmd)
 	except:
 		sys.exit()
-	make_stable_backup(outputname, outputpath)
+	if make_backup.upper() == 'Y':
+		print("Making a backup of the files on the server...")
+		make_stable_backup(outputname, outputpath)
 	return
 
 

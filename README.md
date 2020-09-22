@@ -8,4 +8,4 @@ Before running this script, please make sure:
 
 To run this script, type on the terminal:
 
-python download_demult_files.py --username \<username provided by GP\> --password \<password provided by GP\> --url \<URL provided by GP\> --output-folder-name \<name of the output folder\> --output-folder-path \<path to the output folder\>
+python download_demult_files.py --username \<username provided by GP\> --password \<password provided by GP\> --url \<URL provided by GP\> --output-folder-name \<name of the output folder\> --output-folder-path \<path to the output folder\> --make-backup \<Y/N\>
